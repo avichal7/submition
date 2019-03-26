@@ -1,0 +1,52 @@
+
+#include<iostream>
+using namespace std;
+main()
+{int n,m,f=0;
+cout<<" enter no of memory blocks\n";cin>>n;
+	cout<<" enter size of memory blocks\n";
+	int mb[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>mb[i];
+	}
+	cout<<" enter no of process\n";
+	cin>>m;
+	cout<<" enter size of memory used by process\n";
+	int p[m];
+	int mbs[n];
+		for(int i=0;i<n;i++)
+	{
+		mbs[i]=0;
+	}
+	int ps[m];
+		for(int i=0;i<m;i++)
+	{
+		cin>>p[i];
+	}
+	for(int i=0;i<m;i++)
+	{
+	for(int j=0;j<n;j++)
+	{
+	
+		if(p[i]<=mb[j] && mbs[j]==0)
+		{
+			
+			mbs[j]=1;
+			ps[f]=i;
+			cout<<"\nps = "<<ps[f]<<"\nf= "<<f<<"\n";
+			f++;
+			break;
+		}
+}}
+//cout<<f<<"f";
+for(int i=0;i<f;i++)
+{
+	cout<<ps[i]<<"nps\n";
+}
+for(int i=0;i<n;i++)
+{
+	cout<<mbs[i]<<"mbs\n";
+}
+}
+
