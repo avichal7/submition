@@ -1,0 +1,94 @@
+#include<iostream>
+using namespace std;
+main()
+{int i=0;//int count=0;
+	int n,c,s=0,f=0,a=0;
+	cout<<"enter no of process\n";
+	cin>>n;
+	int At[n],Et[n],t1[n],Ct[n];
+	cout<<"enter arival timings\n";
+	for(int i=0;i<n;i++)
+	{
+		cout<<i+1<<" - ";
+		cin>>At[i];
+	}
+	cout<<"enter execution timings\n";
+	for(int i=0;i<n;i++)
+	{
+		cout<<i+1<<" - ";
+		cin>>Et[i];
+	}
+	for(int i=0;i<n;i++)
+	{
+		f=f+Et[i];
+	}
+	cout<<"enter counter";
+	cin>>c;
+	for(int i=0;i<n;i++)
+	{
+		t1[i]=0;
+	}
+	while(1)
+	{int t2;int count=0;
+		if(Et[i]!=0 && t1[i]!=1 && At[i]<=s)
+		{count=1;
+			if(Et[i]>=c)
+			{
+			Et[i]=Et[i]-c;
+			//cout<<"Et of"<<i<<" = "<<Et[i];
+			s=s+c;
+			//cout<<"\ns="<<s;
+			}
+			else
+			{
+				
+			t2=c-Et[i];
+			//cout<<"t2"<<i<<" = "<<t2;
+			Et[i]=0;
+			//cout<<"Et of"<<i<<" = "<<Et[i];
+			s=s+t2;
+			//cout<<"\ns="<<s;}
+			if(Et[i]==0)
+			{
+			t1[i]=1;
+			Ct[i]=s;
+		}
+		if(count==0)
+		{
+			a++;
+		}
+		/*for(int i=0;i<n;i++)
+		{if(t1[i]==1)
+		{count++;
+		cout<<"\ncount="<<count;
+		}
+		}*/
+		//cout<<"n vale ="<<n<<"count vale="<<count;
+		}
+		if(a>=4)
+		{
+			s=s+c;
+		}
+		i++;
+		//cout<<"\npahlei="<<i;
+		i=i%n;
+		//cout<<"\nbadmei="<<i;
+		
+		if(s==f)
+		{
+		//cout<<"\nbreak by s";
+		break;
+		}
+	/*	if(count>=n)
+		{
+		cout<<"\nbreak";
+		break;
+		}*/
+	}
+
+for(int i=0;i<n;i++)
+	{
+		cout<<"\nct="<<Ct[i]<<"\n";
+		
+	}
+}
