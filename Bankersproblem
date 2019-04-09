@@ -1,0 +1,112 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+	int p,r,count=0;
+	cout<<"Enter no. of processes\n"; cin>>p;
+	cout<<"Enter no. of resourcess\n"; cin>>r;
+	
+	int ca[p][r],ma[p][r],av[r],ne[p][r],flag1[p],ans=0;
+	count=p;
+	cout<<"\nEnter current allocation\n";
+	for(int i=0;i<p;i++)
+	{
+		for(int j=0;j<r;j++)
+		{
+			cin>>ca[i][j];
+		}
+	}
+	
+	cout<<"\nEnter max allocation\n";
+	for(int i=0;i<p;i++)
+	{   flag1[i]=0;
+		for(int j=0;j<r;j++)
+		{
+			cin>>ma[i][j];
+		}
+	}
+	
+	cout<<"\nEnter available\n";
+		for(int j=0;j<r;j++)
+		{
+			cin>>av[j];
+		}
+		
+		
+	    cout<<"\nNeed resources are\n";
+		for(int i=0;i<p;i++)
+	{
+		for(int j=0;j<r;j++)
+		{
+			ne[i][j]=ma[i][j]-ca[i][j];
+			cout<<ne[i][j]<<"  ";
+		}
+		cout<<endl;
+	}
+	
+	
+		while(count!=0)
+		{
+			for(int i=0;i<p;i++)
+			{   int flag=0;
+				for(int j=0;j<r;j++)
+				{
+					if(av[j]>=ne[i][j]&&flag1[i]!=1)
+					{
+						flag++;
+					}
+				}
+				if(flag==r)
+				{
+					for(int j=0;j<r;j++)
+					av[j]+=ma[i][j];		
+					flag1[i]=1;
+					ans++;
+					
+				} if(flag==r) break;
+			}count--;
+		}
+		
+		if(ans==p) cout<<"\nsafe\n";
+		
+		cout<<"Available resources at last\n";
+		for(int i=0;i<r;i++) cout<<av[i]<<" ";
+		cout<<endl;
+}
+OUTPUT:-
+Enter no. of processes
+5
+Enter no. of resourcess
+4
+
+Enter current allocation
+0 0 1 2
+1 0 0 0
+1 3 5 4
+0 6 3 2
+0 0 1 4
+
+Enter max allocation
+0 0 1 2
+1 7 5 0
+2 3 5 6
+0 6 5 2
+0 6 5 6
+
+Enter available
+1 5 2 0
+
+Need resources are
+0  0  0  0
+0  7  5  0
+1  0  0  2
+0  0  2  0
+0  6  4  2
+
+safe
+Available resources at last
+4 27 23 16
+
+--------------------------------
+Process exited after 164.4 seconds with return value 0
+Press any key to continue . . .
