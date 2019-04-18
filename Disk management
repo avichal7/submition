@@ -1,0 +1,116 @@
+#include<iostream>
+using namespace std;
+main()
+{int fault=0;
+    int pg;
+    cout<<"enter the no of pages\n";
+    cin>>pg;
+    cout<<"enter pages\n";
+    int a[pg];
+    for(int i=0;i<pg;i++)
+    {
+        cin>>a[i];
+    }
+    
+    int block;
+    cout<<"enter the no of page block";
+    cin>>block;
+    int b[block];
+    int q=0;
+    for(int i=0;i<block;i++)
+    {
+        b[i]=(0-(i+1));
+    }
+    //for(int i=0;i<block;i++)
+    //{
+    //    b[i]=a[i];
+    //    fault++;
+    //}
+    for(int i=0;i<pg;i++)
+    {int z=0;
+    for(int j=0;j<block;j++)
+    {
+        if(a[i]==b[j])
+        {
+            cout<<"z=1";
+        z=1;
+        break;
+        }
+    }
+    if(z==0)
+    {cout<<"a[i=="<<a[i];
+    cout<<"q main ="<<q;
+    b[q]=a[i];
+    cout<<"block value is";
+        for(int t=0;t<block;t++)
+    {
+    cout<<"t\n"<<b[t];
+    }
+    q=q%(block-1);
+    cout<<"q"<<q;
+    q++;
+        fault++;
+    }
+    }
+    cout<<" number of fault is"<<fault;
+}
+OUTPUT:-
+enter the no of pages
+18
+enter pages
+0
+9
+0
+1
+8
+1
+8
+7
+8
+7
+1
+2
+8
+2
+7
+8
+2
+3
+enter the no of page block3
+a[i==0q main =0block value ist
+0t
+-2t
+-3q0a[i==9q main =1block value ist
+0t
+9t
+-3q1z=1a[i==1q main =2block value ist
+0t
+9t
+1q0a[i==8q main =1block value ist
+0t
+8t
+1q1z=1z=1a[i==7q main =2block value ist
+0t
+8t
+7q0z=1z=1a[i==1q main =1block value ist
+0t
+1t
+7q1a[i==2q main =2block value ist
+0t
+1t
+2q0a[i==8q main =1block value ist
+0t
+8t
+2q1z=1a[i==7q main =2block value ist
+0t
+8t
+7q0z=1a[i==2q main =1block value ist
+0t
+2t
+7q1a[i==3q main =2block value ist
+0t
+2t
+3q0 number of fault is11
+--------------------------------
+Process exited after 91.22 seconds with return value 0
+Press any key to continue . . .
