@@ -1,0 +1,98 @@
+#include<iostream>
+#include <bits/stdc++.h> 
+using namespace std;
+main()
+{int n,m,f=0;
+cout<<" enter no of memory blocks\n";cin>>n;
+    cout<<" enter size of memory blocks\n";
+    int mb[n];int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>mb[i];
+    }
+    cout<<" enter no of process\n";
+    cin>>m;
+    cout<<" enter size of memory used by process\n";
+    int p[m];
+    int mbs[n];int kbs[n];
+        for(int i=0;i<n;i++)
+    {
+        mbs[i]=0;
+    }
+    for(int i=0;i<n;i++)
+    {
+        kbs[i]=0;
+    }
+    int ps[m];
+        for(int i=0;i<m;i++)
+    {
+        cin>>p[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        arr[i]=mb[i];
+    }
+    sort(arr, arr+n, greater<int>());
+    
+    
+    
+    for(int i=0;i<m;i++)
+    {
+    for(int j=0;j<n;j++)
+    {
+    
+        if(p[i]<=arr[j] && mbs[j]==0)
+        {
+            for(int k=0;k<n;k++)
+            {
+                if(arr[j]==mb[k]&& kbs[k]==0)
+                {
+                    ps[f]=k;
+                    kbs[k]=1;
+                }
+            }
+            mbs[j]=1;
+            //ps[f]=i;
+            //cout<<"\nps = "<<ps[f]<<"\nf= "<<f<<"\n";
+            f++;
+            break;
+        }
+}}
+//cout<<f<<"f";
+for(int i=0;i<f;i++)
+{
+    cout<<"process"<<i<<"execute in block ="<<ps[i]+1<<"\n";
+}
+for(int i=0;i<n;i++)
+{
+    cout<<"block used"<<mbs[i]<<"\n";
+}
+}
+OUTPUT:-
+enter no of memory blocks
+5
+ enter size of memory blocks
+100
+500
+200
+300
+600
+ enter no of process
+4
+ enter size of memory used by process
+212
+417
+112
+426
+process0execute in block =5
+process1execute in block =2
+process2execute in block =4
+block used1
+block used1
+block used1
+block used0
+block used0
+
+--------------------------------
+Process exited after 93.82 seconds with return value 0
+Press any key to continue . . .
